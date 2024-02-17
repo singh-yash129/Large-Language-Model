@@ -81,14 +81,14 @@ def classify_task(task_description):
         {{
             "action": "generate",
             "target": "data files",
-            "input_file": "https://raw.githubusercontent.com/sanand0/tools-in-data-science-public/tds-2025-01/project-1/datagen.py",
+            "input_file": "null",
             "output_file": null,
             "width": null,
             "height": null,
             "quality": null,
             "query": null,
             "prompt": null, 
-            "url": null, 
+            "url": "https://raw.githubusercontent.com/sanand0/tools-in-data-science-public/tds-2025-01/project-1/datagen.py", 
             "require": ["uv"],
             "api_method": null,
             "filters": null, 
@@ -195,6 +195,28 @@ def classify_task(task_description):
             "date_format": null 
         }}
         ```
+         ### **A8. recognize text from image**
+        **Task:**`/data/credit_card.png` contains a credit card number. Pass the image to an LLM, have it extract the card number, and write it without spaces to `/data/credit-card.txt
+        ```json
+        {{
+            "action": "recognize",
+            "target": "credit card number",
+            "input_file": "/data/credit_card.png",
+            "output_file": "/data/credit-card.txt",
+            "width": null, 
+            "height": null, 
+            "quality": null,
+            "query": null,
+            "prompt": "extract credit_card number and write it only",
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
+            "date_format": null 
+        }}
+       
 
         ### **A10. Compute Total Sales for "Gold" Tickets**
         **Task:**'The SQLite database file `/data/ticket-sales.db` has a `tickets` with columns `type`, `units`, and `price`. Each row is a customer bid for a concert ticket. What is the total sales of all the items in the "Gold" ticket type? Write the number in `/data/ticket-sales-gold.txt`'

@@ -7,7 +7,7 @@ import sqlite3
 import pytesseract
 from PIL import Image,ImageEnhance,ImageFilter
 import numpy as np
-
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 import io  
 from datetime import datetime
 from flask import jsonify
@@ -160,7 +160,7 @@ def a8(input_file, output_file, prompt):
     image = ImageEnhance.Contrast(image).enhance(5.5)  
     image = image.filter(ImageFilter.SHARPEN)
 
-    image = image.point(lambda p: p < 180 and 255)  
+    image = image.point(lambda p: 255 if p > 180 else 0)  
     custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  # Focus on digits
     extracted_text = pytesseract.image_to_string(image, config=custom_config)
     # OpenAI API Request
