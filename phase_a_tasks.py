@@ -1,5 +1,6 @@
 import os
 import json
+import imghdr
 import glob
 import sqlite3
 import pytesseract
