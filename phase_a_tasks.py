@@ -1,12 +1,14 @@
 import os
 import json
-import imghdr
+import base64
+import re
 import glob
 import sqlite3
 import pytesseract
-from PIL import Image
+from PIL import Image,ImageEnhance,ImageFilter
 import numpy as np
-  # Importing OCR library
+
+import io  
 from datetime import datetime
 from flask import jsonify
 from dateutil import parser
@@ -147,38 +149,35 @@ def a8(input_file, output_file, prompt):
         image_base64 = base64.b64encode(image_data).decode("utf-8")
 
     # Detect the actual image format
-    image_format = imghdr.what(input_file)  # More reliable than splitting the filename
+    image = Image.open(io.BytesIO(image_data))
+    image_format = image.format.lower()   # More reliable than splitting the filename
     if image_format not in ["png", "jpeg", "jpg"]:
         return jsonify({"error": f"Unsupported image format: {image_format}"}), 400
 
-    mime_type = f"image/{image_format}"  # Ensures correct MIME type
+    image = image.convert('L')# Ensures correct MIME type
+    image = image.resize((image.width * 4, image.height * 4)) 
+    image = image.resize((image.width * 2, image.height * 2), resample=Image.Resampling.LANCZOS)
+    image = ImageEnhance.Contrast(image).enhance(5.5)  
+    image = image.filter(ImageFilter.SHARPEN)
 
+    image = image.point(lambda p: p < 180 and 255)  
+    custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  # Focus on digits
+    extracted_text = pytesseract.image_to_string(image, config=custom_config)
     # OpenAI API Request
+
     response = call_openai_api("chat/completions", {
         "model": "gpt-4o-mini",
-        "messages": [{
-            "role": "user",
-            "content": [
-                {"type": "text", "text": prompt},
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:{mime_type};base64,{image_base64}"
-                    }
-                }
-            ]
-        }]
+        "messages": [{"role": "user", "content": f"{prompt}: {extracted_text}"}]
     })
-
     # Process the response
-    if response and "choices" in response and response["choices"]:
-        extracted_text = response["choices"][0]["message"]["content"].strip()
+    if "choices" in response and response["choices"]:
+        credit_card_num = response["choices"][0]["message"]["content"].strip()
     else:
         return jsonify({"error": "Failed to extract credit card number"}), 500
 
     # Save extracted text
     with open(output_file, "w", encoding="utf-8") as file:
-        file.write(extracted_text)
+        file.write(credit_card_num)
 
     return jsonify({"message": "Task A8 completed successfully"}), 200
 
