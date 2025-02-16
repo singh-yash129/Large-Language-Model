@@ -1,0 +1,12 @@
+Flask
+requests
+pandas
+Flask
+numpy
+pandas
+pytesseract
+Pillow
+requests
+python-dateutil
+uv
+
