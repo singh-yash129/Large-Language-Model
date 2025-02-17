@@ -83,17 +83,17 @@ def classify_task(task_description):
             "target": "data files",
             "input_file": "https://raw.githubusercontent.com/sanand0/tools-in-data-science-public/tds-2025-01/project-1/datagen.py",
             "output_file": null,
-            "width": null 
-            "height": null 
-            "quality": null
-            "query": null
-            "prompt": null 
-            "url": null 
+            "width": null,
+            "height": null,
+            "quality": null,
+            "query": null,
+            "prompt": null, 
+            "url": null, 
             "require": ["uv"],
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -106,17 +106,17 @@ def classify_task(task_description):
             "target": "Wednesdays",
             "input_file": "/data/dates.txt",
             "output_file": "/data/dates-wednesdays.txt",
-            "width": null 
-            "height": null 
-            "quality": null
+            "width": null, 
+            "height": null, 
+            "quality": null,
             "query": null,
-            "prompt": null
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "prompt": null,
+            "url": null,
+            "require": null,
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -129,17 +129,17 @@ def classify_task(task_description):
             "target": "first line of recent logs",
             "input_file": "/data/logs/*.log",
             "output_file": "/data/logs-recent.txt",
-            "prompt": null
-            "width": null 
-            "height": null 
-            "quality": null
+            "prompt": null,
+            "width": null, 
+            "height": null, 
+            "quality": null,
             "query": null,
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -151,19 +151,19 @@ def classify_task(task_description):
         {{
             "action": "index",
             "target": "rewrite",
-            "input_file": "/data/docs/**/*md",
+            "input_file": "/data/docs/**/*.md",
             "output_file": "/data/docs/index.json",
-            "prompt": null
-            "width": null 
-            "height": null 
-            "quality": null
+            "prompt": null,
+            "width": null, 
+            "height": null, 
+            "quality": null,
             "query": null,
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -181,17 +181,17 @@ def classify_task(task_description):
             "target": "email - extraction",
             "input_file": "/data/email.txt",
             "output_file": "/data/email-sender.txt",
-            "prompt":Pass the content to an LLM with instructions to extract the sender's email address, and write just the email address 
-            "width": null 
-            "height": null 
-            "quality": null
+            "prompt":Pass the content to an LLM with instructions to extract the sender's email address, and write just the email address, 
+            "width": null,
+            "height": null, 
+            "quality": null,
             "query": null,
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -204,17 +204,17 @@ def classify_task(task_description):
             "target": "total sales",
             "input_file": "/data/ticket-sales.db",
             "output_file": "/data/ticket-sales-gold.txt",
-            "width": null 
-            "height": null 
-            "quality": null
+            "width": null, 
+            "height": null, 
+            "quality": null,
             "query": "SELECT SUM(units * price) FROM tickets WHERE type = 'Gold'",
-            "prompt": null
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "prompt": null,
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -227,19 +227,19 @@ def classify_task(task_description):
             "target": "API data",
             "input_file": null,
             "output_file": "/data/api-data.json",
-            "width": null 
-            "height": null 
-            "quality": null
-            "query": null
-            "prompt": null 
+            "width": null, 
+            "height": null, 
+            "quality": null,
+            "query": null,
+            "prompt": null, 
             "url": "https://api.example.com/data",
-            "require": null 
+            "require": null, 
             "api_method": "GET",
             "query": null,
-             "filters": null 
-            "commit_message": null 
-            "language": null 
-            "date_format": null 
+             "filters": null, 
+            "commit_message": null, 
+            "language": null, 
+            "date_format": null
 
         }}
         ```
@@ -251,18 +251,18 @@ def classify_task(task_description):
             "action": "query",
             "target": "top 5 products",
             "input_file": "/data/products.db",
-            "width": null 
-            "height": null 
-            "quality": null
+            "width": null, 
+            "height": null, 
+            "quality": null,
             "output_file": null,
             "query": "SELECT * FROM products ORDER BY sales DESC LIMIT 5",
-            "prompt": null
-            "url": null 
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "prompt": null,
+            "url": null, 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -275,17 +275,17 @@ def classify_task(task_description):
             "target": "trending articles",
             "input_file": null,
             "output_file": "/data/news.json",
-            "width": null 
-            "height": null 
-            "quality": null
-            "query": null
-            "prompt": null 
+            "width": null, 
+            "height": null, 
+            "quality": null,
+            "query": null,
+            "prompt": null, 
             "url": "https://news.example.com",
-            "require": null 
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
+            "require": null, 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null, 
             "date_format": null 
         }}
         ```
@@ -298,18 +298,18 @@ def classify_task(task_description):
             "target": "speech to text",
             "input_file": "/data/interview.mp3",
             "output_file": "/data/interview.txt",
-            "width": null 
-            "height": null 
-            "quality": null
-            "query": null
-            "prompt": null 
-            "url": null 
+            "width": null, 
+            "height": null, 
+            "quality": null,
+            "query": null,
+            "prompt": null, 
+            "url": null, 
             "require": ["whisper"],
-            "api_method": null
-            "filters": null 
-            "commit_message": null 
-            "language": null 
-            "date_format": null 
+            "api_method": null,
+            "filters": null, 
+            "commit_message": null, 
+            "language": null,
+            "date_format": null
         }}
         ```
 
