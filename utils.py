@@ -314,14 +314,16 @@ def classify_task(task_description):
         ```
 
 
-        📝 Task Description:
-        {task_description}
+        
         """
     )
 
     payload = {
         "model": "gpt-4o-mini",
-        "messages": [{"role": "user", "content": prompt}]
+        "messages": [
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": task_description}
+         ]
     }
     
     response = call_openai_api("chat/completions", payload)
