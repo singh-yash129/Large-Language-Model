@@ -83,6 +83,13 @@ def read_file():
     path = request.args.get('path')
     if not os.path.exists(path):
         return "", 404
+    abs_path = os.path.realpath(path)
+    
+    # Ensure it is within /data
+    if not abs_path.startswith(os.path.realpath('/data')):
+        return "You are not authorized to use this space", 404
+
+        
     with open(path, 'r') as file:
         content = file.read()
     return content, 200
