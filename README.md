@@ -23,24 +23,6 @@ DataWorks Agent is an automation agent that uses an LLM to parse task descriptio
 - Pandoc
 - ImageMagick
 
-## Setup
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/dataworks-agent.git
-   cd dataworks-agent
-   ```
-
-2. Build the Docker image:
-   ```sh
-   docker build -t dataworks-agent .
-   ```
-
-3. Run the Docker container:
-   ```sh
-   docker run -e AIPROXY_TOKEN=$AIPROXY_TOKEN -p 8000:8000 dataworks-agent
-   ```
-
 ## Usage
 
 ### Run a Task
