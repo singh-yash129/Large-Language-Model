@@ -7,7 +7,7 @@ import sqlite3
 import pytesseract
 from PIL import Image,ImageEnhance,ImageFilter
 import numpy as np
-
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 import io  
 from datetime import datetime
 from flask import jsonify
